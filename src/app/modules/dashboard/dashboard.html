@@ -5,8 +5,7 @@
       <div class="container">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>
-            My Weather
+          <h1>My Weather
             <small>Dashboard 1.0.0</small>
           </h1>
           <ol class="breadcrumb">
@@ -18,12 +17,14 @@
 
         <!-- Main content -->
         <section class="content">
+          <!--ALERT INFO-->
           <div class="callout callout-info">
             <h4>Olá!</h4>
 
             <p>Quer saber qual é a previsão desta semana? Está no lugar certo!!</p>
             <p>Selecione a sua cidade, receba informações sobre a previsão do tempo e sugestões do que fazer!</p>
           </div>
+          <!--SEARCH BOX-->
           <div class="row">
             <div class="col-md-12">
               <!--Search box-->
@@ -57,7 +58,7 @@
               <!-- /.box -->
             </div>
           </div>
-
+          <!--WEATHER WIDGETS LIST-->
           <div class="row">
             <div ng-class="{'col-md-4': !item.week, 'col-md-3': item.week}" ng-repeat="item in vm.forecastItems">
               <div class="box box-widget widget-user">
@@ -101,7 +102,7 @@
                 </div>
               </div>
             </div>
-
+            <!--CHARTJS WIDGET-->
             <div class="col-md-5" ng-show="vm.sugestionCard">
               <div class="box box-info">
                 <div class="box-body">
@@ -113,7 +114,7 @@
               </div>
             </div>
           </div>
-
+          <!--SUGESTION WEATHER WIDGET-->
           <div class="row" ng-if="vm.sugestionCard">
             <div class="col-md-12">
               <!--Sugestion box-->

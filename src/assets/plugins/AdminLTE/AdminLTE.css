@@ -5940,6 +5940,7 @@ table.text-center th {
 }
 
 .chart {
+  max-height: 195px;
   position: relative;
   overflow: hidden;
   width: 100%;

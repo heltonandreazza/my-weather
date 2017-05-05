@@ -1,7 +1,7 @@
-<div style="height: auto;">
-  <div class="wrapper" style="height: auto;">
+<div class="height-auto">
+  <div class="wrapper" class="height-auto">
     <!-- Full Width Column -->
-    <div class="content-wrapper" style="min-height: 873px;">
+    <div class="content-wrapper min-height-875">
       <div class="container">
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -64,7 +64,6 @@
               <div class="box box-widget widget-user">
                 <!-- Add the bg color to the header using any of the bg-* classes -->
                 <div class="widget-user-header bg-black" style="background: url({{item.mainImage}}) center center;">
-                  <!--style="background: url('../dist/img/photo1.png') center center;"-->
                   <h3 class="widget-user-username">{{item.date}}</h3>
                   <h5 class="widget-user-desc">{{item.weather.description}}</h5>
                 </div>
@@ -107,7 +106,7 @@
               <div class="box box-info">
                 <div class="box-body">
                   <div class="chart">
-                    <canvas id="lineChart" style="max-height: 195px;"></canvas>
+                    <canvas id="lineChart"></canvas>
                   </div>
                 </div>
                 <!-- /.box-body -->
@@ -126,11 +125,11 @@
                 <div class="box-body">
                   <div>
                     <div class="col-md-4">
-                      <img class="img-circle" height="180" data-ng-src="{{ vm.sugestionCard.image }}" alt="User Image" style="max-height: 210px;margin-bottom: 25px;max-width: 270px;">
+                      <img class="img-circle image-card" height="180" data-ng-src="{{ vm.sugestionCard.image }}" alt="User Image">
                     </div>
 
                     <div class="col-md-8">
-                      <div class="callout callout-success" style="padding: 30px;">
+                      <div class="callout callout-success padding-30">
                         <h4>Heey!</h4>
 
                         <p>{{ vm.sugestionCard.info }}</p>

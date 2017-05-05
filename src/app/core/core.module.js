@@ -1,8 +1,6 @@
 //external libs
 import uiRouter from 'angular-ui-router';
 import ngAnimate from 'angular-animate';
-import angularUiBootstrap from 'angular-ui-bootstrap';
-import angularTranslate from 'angular-translate';
 import Chart from 'chart.js';
 //internal libs
 import constants from './constants';
@@ -12,8 +10,6 @@ export default angular
     //external libs
     uiRouter,
     ngAnimate,
-    angularUiBootstrap,
-    angularTranslate,
     //internal libs
     constants
   ])

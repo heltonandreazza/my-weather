@@ -5,7 +5,8 @@
   "main": "app.module.js",
   "scripts": {
     "test": "echo \"no test specified\" && exit 1",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,6 @@
     "admin-lte": "^2.3.11",
     "angular": "1.6.1",
     "angular-animate": "1.6.1",
-    "angular-translate": "^2.15.1",
-    "angular-ui-bootstrap": "2.5.0",
     "angular-ui-router": "0.4.2",
     "babel-core": "6.22.1",
     "babel-loader": "6.2.10",
@@ -29,13 +28,10 @@
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "^0.11.1",
     "html-webpack-plugin": "2.28.0",
-    "isteven-angular-multiselect": "^4.0.0",
-    "jquery": "3.1.1",
     "ng-annotate-webpack-plugin": "0.2.1-pre",
     "ng-cache-loader": "0.0.22",
-    "node-sass": "4.5.0",
+    "node-sass": "^4.5.2",
     "sass-loader": "4.1.1",
-    "select2-bootstrap-theme": "0.1.0-beta.10",
     "style-loader": "^0.17.0",
     "url-loader": "^0.5.8",
     "webpack": "1.14.0",

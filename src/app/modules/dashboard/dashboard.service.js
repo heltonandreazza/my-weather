@@ -10,10 +10,6 @@ class DashBoardService {
     this.dayName = new Array("Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado");
     this.monName = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Agosto", "Outubro", "Novembro", "Dezembro");
     //setup default values for estate and cities services
-    this.setupDefaultValues();
-  }
-
-  setupDefaultValues() {
     this.defaultEstate = "Santa Catarina";
     this.defaultCity = "Blumenau";
   }
@@ -34,7 +30,7 @@ class DashBoardService {
 
   /**
    * Retrieves cities based on the estate's geonameId
-   * @param {Integer} geonameId - geonameId from the selected estate
+   * @param {Integer} geonameId - extract geonameId from the selected estate object
    */
   getCities([{ geonameId }]) {
     return this.$http({
@@ -48,9 +44,10 @@ class DashBoardService {
   }
 
   /**
-   * Transform the items change the selected item by default
+   * Find default estate/city and mark as selected(ticked).
+   * Select the first item if the default is not found
    * @param {Array} items - array of items which could be an estate or a city
-   * @param {String} defaultData - the default name which will be the selected item by default
+   * @param {String} defaultData - the default estate or city name which will be the selected item by default
    * @param {String} prop - the prop for matching the correct data property
    */
   setDefaultData(items, defaultData, prop) {
@@ -60,11 +57,11 @@ class DashBoardService {
   }
 
   /**
-   * Get weather data about this week
+   * Get this week weather data based on the city name
    * @param {String} cityName - city name that will be extracted from the city object selected by the user 
-   * @param {String} units - the units used for changing weather the units will bee celsius, fahreheint
-   * @param {Integer} cnt - quantity of days with weather data will bee generated (16 is the limit)
-   * @param {String} countryCode - country code 
+   * @param {String} units - the units used for changing weather the units will bee (celsius,fahreheint,..)
+   * @param {Integer} cnt - how many days the api weather will retrieve (16 is the limit)
+   * @param {String} countryCode - country code for filtering cities
    * @param {String} lang - wich language should be used for retrieving data
    */
   getForecast([{ name: cityName }], units = 'metric', cnt = 7, countryCode = 'bra', lang = 'pt') {
@@ -79,16 +76,16 @@ class DashBoardService {
           appid: this.appIdOpenWeather
         }
       })
-      .then(response => this.buildForecastCard(response.data.list));
+      .then(response => this.setAdditionalForecastData(response.data.list));
   }
 
   /**
-   * Build data for showing to the user a card with the weather information
-   * @param {*} items 
+   * Set additional data for showing to the user a card with the weather information
+   * @param {array} items - array with the dayly weather data
    */
-  buildForecastCard(items) {
+  setAdditionalForecastData(items) {
     items.forEach(item => {
-      let date = new Date(item.dt * 1000)
+      let date = new Date(item.dt * 1000);
       item.temp.media = ((item.temp.min + item.temp.max) / 2).toFixed(2);
       item.realDate = date;
       item.date = this.dayName[date.getDay()] + ', ' + this.monName[date.getMonth()] + " de " + date.getFullYear();
@@ -101,7 +98,7 @@ class DashBoardService {
   }
 
   /**
-   * Build data for showing to the user a card with the whole week information
+   * Retrieve data for showing to the user a card with the whole week information
    * @param {array} forecastItems - items from this week forecast
    */
   getWeekForecast(forecastItems) {
@@ -152,14 +149,14 @@ class DashBoardService {
     })
 
     weekendMedia = (((weekendMin / weekendItems.length) + (weekendMax / weekendItems.length)) / 2).toFixed(2);
-    console.log('rainQuantity', rainQuantity);
+    
     return {
       title: 'Sugestões para o final de semana',
       info: "O final de semana " +
-        (rainQuantity > 10 ? 'estará chuvoso' : (rainQuantity > 2 ? 'estará com pequenas changes de chuva' : 'estará sem chances de chuva')) +
-        (weekendMedia > 25 ? ' e o clima estará calor.' : (weekendMedia < 10 ? ' e o clima estará frio.' : ' e o clima estará ameno.')),
+        (rainQuantity > 10 ? 'estará chuvoso' : (rainQuantity > 2 ? 'estará com pequenas chances de chuva' : 'estará sem chances de chuva')) +
+        (weekendMedia > 25 ? ' e o clima estará calor.' : (weekendMedia < 15 ? ' e o clima estará frio.' : ' e o clima estará ameno.')),
       sugestion: "Sugerimos que você " +
-        (weekendMedia > 20 ? ' vista uma roupa leve' : (weekendMedia < 10 ? ' vista um casaco' : ' fique a vontade')) +
+        (weekendMedia > 20 ? ' vista uma roupa leve' : (weekendMedia < 15 ? ' vista um casaco' : ' vista uma roupa moderada')) +
         (rainQuantity > 10 ? ' e vá curtir um cinema.' : (rainQuantity > 2 ? ' e vá jantar fora.' : ' e vá curtir uma praia.')),
       image: rainQuantity > 10 ? this.imageService.getContentImage('cinema') : (rainQuantity > 2 ? this.imageService.getContentImage('jantar') : this.imageService.getContentImage('praia')),
       image2: this.imageService.getContentImage('vidadeturista'),

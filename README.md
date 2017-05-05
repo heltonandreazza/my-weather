@@ -18,6 +18,11 @@ $ npm install
 $ npm start
 ```
 
+Generating build:
+```bash
+$ npm run build or webpack
+```
+
 ## Contributors  
 
 **@author:** 'Helton Andreazza *< [helton.prg@gmail.com](mailto:helton.prg@gmail.com) >*'   

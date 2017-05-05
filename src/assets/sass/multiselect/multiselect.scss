@@ -1,0 +1,271 @@
+.multiSelect {
+  .helperButton:hover,
+  .clearButton:hover {
+    border: 1px solid #E5E5E5;
+    color: #999;
+    background-color: #f4f4f4;
+  }
+  .helperButton:focus,
+  .clearButton:focus,
+  .inputFilter:focus {
+    border: 1px solid #66afe9 !important;
+    outline: 0;
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.065), 0 0 5px rgba(102, 175, 233, 0.6) !important;
+  }
+  .multiSelectItem:hover,
+  .multiSelectGroup:hover {
+    background: #f9fafb;
+    cursor: pointer;
+    border: 1px solid #E5E5E5 !important;
+  }
+  .vertical {
+    float: none;
+  }
+  .line {
+    padding: 2px 0 4px;
+    max-height: 30px;
+    overflow: hidden;
+    box-sizing: content-box;
+  }
+  .acol {
+    display: inline-block;
+    min-width: 12px;
+    width: 99%;
+  }
+  .inlineBlock {
+    display: inline-block;
+  }
+  >button {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: left;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: 1px solid #E5E5E5;
+    height: 34px;
+    outline-color: #999999;
+    outline-style: solid;
+    outline-width: 0px;
+    outline-offset: 0px;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    padding: 6px 12px;
+    font-size: 14px;
+    min-width: 115px;
+    width: 100%;
+    color: #333;
+    background-color: #fff;
+    &:hover {
+      color: #333;
+      background-color: #e6e6e6;
+      border-color: #8c8c8c;
+    }
+    &:disabled {
+      background-image: linear-gradient(#fff, #fff);
+      border: 1px solid #ddd;
+      color: #999;
+    }
+    &:focus {
+      border-color: #999;
+      outline: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+  }
+  .buttonClicked {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #8c8c8c;
+  }
+  .buttonLabel {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 85%;
+  }
+  .middle {
+    padding: 5px 0;
+  }
+  .checkboxLayer {
+    background-color: #fff;
+    position: absolute;
+    z-index: 999;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    min-width: 275px;
+    width: 98%;
+    display: none !important;
+    max-height: 400px;
+    overflow: auto;
+  }
+  .helperContainer {
+    border-bottom: 1px solid #ddd;
+    padding: 8px 8px 0 8px;
+  }
+  .helperButton {
+    display: inline;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #E5E5E5;
+    height: 26px;
+    font-size: 13px;
+    border-radius: 2px;
+    color: #666;
+    background-color: #f1f1f1;
+    line-height: 1.6;
+    margin: 0 0 8px 0;
+    float: right;
+    &.reset {
+      float: right;
+    }
+    &:disabled {
+      color: #E5E5E5;
+      border: 1px solid #ddd;
+    }
+    &:not(.reset) {
+      margin-right: 4px;
+    }
+  }
+  .clearButton {
+    position: absolute;
+    display: inline;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #E5E5E5;
+    height: 22px;
+    width: 22px;
+    font-size: 13px;
+    border-radius: 2px;
+    color: #666;
+    background-color: #f1f1f1;
+    line-height: 1.4;
+    right: 2px;
+    top: 4px;
+  }
+  .inputFilter {
+    border-radius: 2px;
+    border: 1px solid #E5E5E5;
+    height: 26px;
+    font-size: 14px;
+    width: 100%;
+    padding-left: 7px;
+    box-sizing: border-box;
+    color: #888;
+    margin: 0 0 8px 0;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  }
+  .checkBoxContainer {
+    display: block;
+    padding: 8px;
+    overflow: hidden;
+  }
+  .show {
+    display: block !important;
+  }
+  .multiSelectItem {
+    display: block;
+    padding: 3px;
+    color: #444;
+    white-space: nowrap;
+    user-select: none;
+    border: 1px solid transparent;
+    position: relative;
+    width: 100%;
+    min-height: 32px;
+    &:not(.multiSelectGroup).selected {
+      background: #f9fafb;
+      color: #555;
+      cursor: pointer;
+      border-top: 1px solid #e6e6e6;
+      border-left: 1px solid #e6e6e6;
+      border-right: 1px solid #ddd;
+      border-bottom: 1px solid #e6e6e6;
+    }
+    .acol label {
+      display: inline-block;
+      padding-right: 30px;
+      margin: 0;
+      font-weight: normal;
+      line-height: normal;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    span:hover {
+      cursor: pointer;
+    }
+  }
+  .multiSelectGroup {
+    display: block;
+    clear: both;
+    span:hover {
+      cursor: pointer;
+    }
+  }
+  .multiSelectFocus {
+    background: #f9fafb;
+    cursor: pointer;
+    border: 1px solid #E5E5E5 !important;
+  }
+  .tickMark {
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    font-size: 10px;
+  }
+  .checkbox {
+    color: #ddd !important;
+    position: absolute;
+    left: -9999px;
+    cursor: pointer;
+  }
+  .disabled {
+    color: #c4c4c4 !important;
+    cursor: not-allowed !important;
+    &:hover,
+    label input:hover~span {
+      color: #c4c4c4 !important;
+      cursor: not-allowed !important;
+    }
+  }
+  img {
+    vertical-align: middle;
+    margin-bottom: 0;
+    max-height: 22px;
+    max-width: 22px;
+  }
+  .horizontal:not(.multiSelectGroup) {
+    float: left;
+  }
+}
+
+.aside-block {
+  .aside-block-info {
+    font-size: 11px;
+    color: #697882;
+  }
+  .aside-block-strong {
+    font-weight: bold;
+    color: #697882;
+  }
+  div {
+    word-wrap: break-word;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #659be0;
+    color: white;
+    font-size: 12px;
+  }
+  .tickMark {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .multiSelectItem:not(.multiSelectGroup).selected {
+    background: #e6e6e6;
+  }
+}

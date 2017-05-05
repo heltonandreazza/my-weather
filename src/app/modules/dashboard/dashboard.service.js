@@ -121,8 +121,8 @@ class DashBoardService {
     return {
       week: true,
       date: 'Esta semana',
-      mainImage: this.imageService.getContentImage('scattered clouds'),
-      icon: this.imageService.getContentImage('broken clouds'),
+      mainImage: this.imageService.getContentImage(),
+      icon: this.imageService.getContentImage('weekend'),
       weather: {
         description: 'média da semana'
       },

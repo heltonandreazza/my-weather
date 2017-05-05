@@ -11,9 +11,7 @@ class ImageService {
    * @param {String} ext - the image's extension
    * @return {String} - A base64 string representing the image
    */
-  getContentImage(key, ext = '.jpg') {
-    if(!key) return;
-    
+  getContentImage(key = this.defaultUrl, ext = '.jpg') {
     key = key.toLowerCase();
     return this.$templateCache.get(key + ext) ?
       this.$templateCache.get(key + ext).replace("module.exports = ", "").replace(/['"]+/g, '') :

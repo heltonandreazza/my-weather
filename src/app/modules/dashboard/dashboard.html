@@ -37,12 +37,30 @@
                   <div class="row">
                     <div class="col-md-4">
                       <label>Estado</label>
-                      <my-multi-select input-model="vm.input.estate" output-model="vm.output.estate" button-label="name" item-label="name" tick-property="ticked" selection-mode="single" translation="vm.multiSelectLabels" on-close="vm.loadCities(vm.output.estate, true)">
+                      <my-multi-select 
+                        input-model="vm.input.estate" 
+                        output-model="vm.output.estate" 
+                        button-label="name" 
+                        item-label="name" 
+                        tick-property="ticked"
+                        search-property="name" 
+                        selection-mode="single" 
+                        translation="vm.multiSelectLabels" 
+                        on-close="vm.loadCities(vm.output.estate, true)">
                       </my-multi-select>
                     </div>
                     <div class="col-md-4">
                       <label>Cidade</label>
-                      <my-multi-select input-model="vm.input.city" output-model="vm.output.city" button-label="name" item-label="name" tick-property="ticked" selection-mode="single" translation="vm.multiSelectLabels" on-close="vm.loadForecast(vm.output.city)">
+                      <my-multi-select 
+                        input-model="vm.input.city" 
+                        output-model="vm.output.city" 
+                        button-label="name" 
+                        item-label="name" 
+                        tick-property="ticked"
+                        search-property="name" 
+                        selection-mode="single" 
+                        translation="vm.multiSelectLabels" 
+                        on-close="vm.loadForecast(vm.output.city)">
                       </my-multi-select>
                     </div>
                     <div class="col-md-3">

@@ -5,8 +5,8 @@
   "main": "app.module.js",
   "scripts": {
     "test": "echo \"no test specified\" && exit 1",
-    "start": "webpack-dev-server",
-    "build": "webpack"
+    "start": "./node_modules/.bin/webpack-dev-server --content-base src --inline --hot",
+    "build": "./node_modules/.bin/webpack"
   },
   "repository": {
     "type": "git",

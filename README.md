@@ -10,17 +10,15 @@ The app uses:
 
 ## Installation and usage
 
-Install npm and run with start:
+Install yarn and run with start:
 ```bash
-$ npm install webpack -g
-$ npm install webpack-dev-server -g
-$ npm install
-$ npm start
+$ yarn install
+$ yarn start
 ```
 
 Generating build:
 ```bash
-$ npm run build or webpack
+$ yarn run build
 ```
 
 ## Contributors  
